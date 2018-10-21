@@ -1,0 +1,6 @@
+/**
+ * rootReducer
+ *
+ * - authReducer
+ * - toysReducer
+ */

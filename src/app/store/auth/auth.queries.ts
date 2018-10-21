@@ -1,0 +1,6 @@
+/**
+ * authQueries
+ *
+ * - connected
+ * - opened
+ */

@@ -1,0 +1,35 @@
+<div class="auth">
+  <div class="authContent">
+
+    <a
+      class="authContent__close"
+    ><i class="mdi mdi-window-close"></i></a>
+
+    <form novalidate>
+
+      <p>
+        <label for="user">Utilisateur / email</label>
+
+        <!-- "^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" -->
+        <input
+          type="email"
+          name="user"
+          autofocus
+        >
+      </p>
+
+      <p>
+        <label for="pass">Mot de passe</label>
+        <input
+          type="password"
+          name="pass"
+        >
+      </p>
+
+      <p class="authContent--center">
+        <button>Connection</button>
+      </p>
+
+    </form>
+  </div>
+</div>

@@ -1,0 +1,5 @@
+/**
+ * ToysResolver
+ *
+ * - ajoute Toys
+ */
