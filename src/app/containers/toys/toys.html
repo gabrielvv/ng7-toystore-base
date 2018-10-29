@@ -1,7 +1,7 @@
 <main class="toy-page">
 
-  <article class="toy-item">
-    <toy></toy>
+  <article class="toy-item" *ngFor="let toy of toys">
+    <app-toy [toy]="toy" (select)="onSelect($event)"></app-toy>
   </article>
 
 </main>

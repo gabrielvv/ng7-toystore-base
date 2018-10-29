@@ -1,5 +1,7 @@
 <article
-  class="toy selected"
+  class="toy"
+  [ngClass]="{selected: toy.selected}"
+  (click)="onSelect()"
 >
-  <i class="mdi mdi-cat"></i>
+  <i class="mdi mdi-{{toy.icon}}"></i>
 </article>
