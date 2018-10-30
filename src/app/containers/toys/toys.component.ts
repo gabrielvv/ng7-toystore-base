@@ -6,35 +6,29 @@
  */
 import { Component, OnInit } from '@angular/core'
 import { Toy } from 'src/app/models/toy'
+import { ToyService } from 'src/app/services/toys/toys.service';
+import { BasketService } from 'src/app/services/basket.service';
+import { Observable } from 'rxjs'
 
 @Component({
   selector: 'app-toys',
   templateUrl: './toys.html'
 })
 export class ToysComponent implements OnInit {
-  public toys: Toy[]
+  public toys: Observable<Toy[]>
+
+  constructor(private toyService: ToyService, private basketService : BasketService){
+
+  }
 
   ngOnInit() {
-    this.toys = [
-      {
-        'title': 'ball',
-        'icon': 'airballoon',
-        'price': 5
-      },
-      {
-        'title': 'plane',
-        'icon': 'airplane',
-        'price': 35
-      },
-      {
-        'title': 'ambulance',
-        'icon': 'ambulance',
-        'price': 15
-      }
-    ]
+    this.toys = this.toyService.getToys()
   }
 
   public onSelect = (toy: Toy) => {
     toy.selected = !toy.selected
+    toy.selected 
+    ? this.basketService.addToy(toy)
+    : this.basketService.removeToy(toy);
   }
 }

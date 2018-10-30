@@ -1,6 +1,6 @@
 <main class="toy-page">
 
-  <article class="toy-item" *ngFor="let toy of toys">
+  <article class="toy-item" *ngFor="let toy of toys | async">
     <app-toy [toy]="toy" (select)="onSelect($event)"></app-toy>
   </article>
 

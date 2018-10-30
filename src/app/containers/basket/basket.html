@@ -1,19 +1,19 @@
 <main class="basket">
 
-  <article>
-    <i class="mdi mdi-cat"></i>
-    <strong>Chat</strong>
-    <i class="mdi mdi-close-circle"></i>
-    <span>10€</span>
+  <article *ngFor="let toy of toys | async">
+    <i class="mdi mdi-{{toy.icon}}"></i>
+    <strong>{{toy.title | titlecase}}</strong>
+    <i class="mdi mdi-close-circle" (click)="onDelete(toy)"></i>
+    <span>{{toy.price}} €</span>
   </article>
 
   <aside>
     <strong>Total :</strong>
-    <span>10€</span>
+    <span>{{total | async}} €</span>
   </aside>
 
   <footer>
-    <button>> PAY !</button>
+    <button (click)="onPay($event)">> PAY !</button>
   </footer>
 
 </main>

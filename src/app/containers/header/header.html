@@ -1,12 +1,12 @@
 <header>
   <h1>
-    <a>Toy Store</a>
+    <a routerLink="/toys">Toy Store</a>
   </h1>
 
   <aside>
-    <a>
+    <a routerLink="/basket">
       <i class="mdi mdi-basket"></i>
-      <span>2</span>
+      <span>{{(items | async)?.length}}</span>
     </a>
   </aside>
 
