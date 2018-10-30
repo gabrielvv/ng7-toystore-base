@@ -1,3 +1,5 @@
+import { AppState } from "..";
+
 /**
  * toysQueries
  *
@@ -6,3 +8,6 @@
  * - getToysCount
  * - getTotalPrice
  */
+export function getToys(state: AppState){
+    return state.toysReducer.toys
+}

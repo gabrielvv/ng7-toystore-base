@@ -9,26 +9,29 @@ import { Toy } from 'src/app/models/toy'
 import { ToyService } from 'src/app/services/toys/toys.service';
 import { BasketService } from 'src/app/services/basket.service';
 import { Observable } from 'rxjs'
+import { ToysActions } from 'src/app/store/toys/toys.actions';
+import { select } from '@angular-redux/store';
+import * as queries from '../../store/toys/toys.queries'
 
 @Component({
   selector: 'app-toys',
   templateUrl: './toys.html'
 })
 export class ToysComponent implements OnInit {
-  public toys: Observable<Toy[]>
+  @select(queries.getToys) toys: Observable<Toy[]>
 
-  constructor(private toyService: ToyService, private basketService : BasketService){
+  constructor(private toysActions: ToysActions, private basketService : BasketService){
 
   }
 
   ngOnInit() {
-    this.toys = this.toyService.getToys()
+    this.toysActions.getToys()
   }
 
   public onSelect = (toy: Toy) => {
-    toy.selected = !toy.selected
-    toy.selected 
-    ? this.basketService.addToy(toy)
-    : this.basketService.removeToy(toy);
+    // toy.selected = !toy.selected
+    // toy.selected 
+    // ? this.basketService.addToy(toy)
+    // : this.basketService.removeToy(toy);
   }
 }
