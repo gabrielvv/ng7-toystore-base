@@ -14,12 +14,15 @@ export function toysReducer(state : ToyState = defaultToysState, action: any) {
         case TOY.GET_TOYS:
             return {
                 ...state,
-                toys: action.toys
+                toys: state.toys.length ? state.toys : action.toys
             }
         case TOY.SELECT_TOY:
             return {
                 ...state,
                 toys: state.toys.map(t => {
+                    if (t.title === action.toy.title) {
+                        t.selected = !t.selected
+                    }
                     return t
                 })
             }

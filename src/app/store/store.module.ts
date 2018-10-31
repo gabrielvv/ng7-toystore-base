@@ -7,13 +7,14 @@ import rootReducer from './root.reducer'
 import { defaultState, AppState } from '.'
 import { NgModule } from '@angular/core'
 import { ToysActions } from './toys/toys.actions'
+import { AuthActions } from './auth/auth.actions';
 
 @NgModule({
     declarations: [],
     imports: [
         NgReduxModule
     ],
-    providers: [ ToysActions ],
+    providers: [ ToysActions, AuthActions ],
 })
 export class StoreModule {
     constructor(private ngRedux: NgRedux<AppState>, private devTool: DevToolsExtension){

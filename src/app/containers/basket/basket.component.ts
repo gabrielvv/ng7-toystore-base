@@ -7,25 +7,24 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core'
 import { Toy } from '../../models/toy'
 import { Observable } from 'rxjs'
-import { BasketService } from 'src/app/services/basket.service';
+import { ToysActions } from 'src/app/store/toys/toys.actions';
+import { select } from '@angular-redux/store';
+import * as queries from '../../store/toys/toys.queries'
 
 @Component({
     selector: 'app-basket',
     templateUrl: './basket.html'
 })
 export class BasketComponent {
-  public toys: Observable<Toy[]>
-  public total: Observable<Number>
+  @select(queries.getSelectedToys) toys: Observable<Toy[]>
+  @select(queries.getTotal) total: Observable<Number>
 
-  constructor(private basketService: BasketService){}
+  constructor(private toysActions: ToysActions){}
 
-  ngOnInit() {
-    this.toys = this.basketService.getItems()
-    this.total = this.basketService.getTotal()
-  }
+  ngOnInit() {}
 
   onDelete(toy: Toy){
-    this.basketService.removeToy(toy)
+    this.toysActions.selectToy(toy)
   }
 
   onPay($event){

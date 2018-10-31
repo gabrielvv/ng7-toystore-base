@@ -8,7 +8,7 @@
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { Observable, of } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { map, tap, pairwise } from 'rxjs/operators';
 import { Toy } from '../../models/toy'
 
 import { environment } from '../../../environments/environment';
@@ -37,7 +37,7 @@ export class ToyService {
     public getToys(): Observable<Toy[]> {
         return this.http.get<Toy[]>(`${this.url}`).pipe(
             tap(_ => console.log(`fetched Toys`)),
-        );
+        )
     }
     
 }

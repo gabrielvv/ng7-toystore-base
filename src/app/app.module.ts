@@ -24,7 +24,7 @@ import { StoreModule } from './store/store.module';
     // HttpClientInMemoryWebApiModule,
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
+      { enableTracing: false } // <-- debugging purposes only
     ),
     StoreModule,
   ],

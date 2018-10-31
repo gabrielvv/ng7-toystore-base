@@ -29,7 +29,7 @@ export class ToysActions {
     ){}
 
     getToys(){
-        this.toyService.getToys().subscribe(toys => {
+        return this.toyService.getToys().subscribe(toys => {
             this.ngRedux.dispatch({
                 type: TOY.GET_TOYS,
                 toys
@@ -38,7 +38,17 @@ export class ToysActions {
     }
 
     selectToy(toy: Toy){
+        this.ngRedux.dispatch({
+            type: TOY.SELECT_TOY,
+            toy,
+        })
+    }
 
+    setToys(toys : Toy[]){
+        this.ngRedux.dispatch({
+            type: TOY.GET_TOYS,
+            toys,
+        })
     }
 }
 

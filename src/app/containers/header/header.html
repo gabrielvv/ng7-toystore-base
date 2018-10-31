@@ -4,6 +4,14 @@
   </h1>
 
   <aside>
+    <a (click)="login()" *ngIf="!isAuthenticated | async" title="login">
+      <i class="mdi mdi-login"></i>
+    </a>
+
+    <a (click)="logout()" *ngIf="isAuthenticated | async" title="logout">
+        <i class="mdi mdi-logout"></i>
+    </a>
+
     <a routerLink="/basket">
       <i class="mdi mdi-basket"></i>
       <span>{{(items | async)?.length}}</span>
