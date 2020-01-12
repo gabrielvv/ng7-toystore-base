@@ -17,12 +17,10 @@ import { AuthGuard } from './services/auth/auth.guard';
 import { AuthComponent } from './containers/auth/auth.component';
 import { ToyDataResolver } from './services/toys/toys.resolver';
 
-const appRoutes: Routes = [
+export const appRoutes: Routes = [
     { path: 'login', component: AuthComponent},
     { path: 'toys', component: ToysComponent, resolve: { toys: ToyDataResolver } },
     { path: 'basket', component: BasketComponent, canActivate: [ AuthGuard ] },
     { path: '', pathMatch: 'full', redirectTo: 'toys' },
     { path: '**', redirectTo: 'toys' }
 ];
-
-export default appRoutes
